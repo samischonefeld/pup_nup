@@ -4,6 +4,12 @@
   "description": "pupnup p4",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "debugger": "DEBUG=*:* nodemon app.js",
+    "server": "nodemon app.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install && cd client && npm install --only-dev && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
