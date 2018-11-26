@@ -23,7 +23,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-sessions": "^1.0.6",
     "morgan": "^1.9.1",
     "pg-promise": "^8.5.2"
   },

@@ -20,10 +20,10 @@ pupController.show = (req, res) => {
   Pups.findById(req.params.id)
     .then( pup => {
       res.json({
-        message: 'ok'
-        data: pup
+        message: 'ok',
+        data: pups
       });
-    });
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json({ err });
