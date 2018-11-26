@@ -9,5 +9,5 @@ pupsRouter.get('/:id', pupsController.show);
 pupsRouter.put('/:id', pupsController.update);
 pupsRouter.delete('/:id', pupsController.destroy)
 
-module.export = pupsRourter
+module.export = pupsRouter
 
