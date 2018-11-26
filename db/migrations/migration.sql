@@ -1,38 +1,38 @@
 CREATE DATABASE pups;
-\c pups_dev;
+\c pups;
 
 CREATE TABLE IF NOT EXISTS pups (
   id SERIAL PRIMARY KEY,
-  dog_name VARCHAR(255),
+  dog_name TEXT,
   dog_age INTEGER,
-  dog_breed TEXT VARCHAR(255),
-  dog_image TEXT,
+  dog_breed TEXT,
+  dog_image TEXT
 );
 
 CREATE TABLE IF NOT EXISTS owners (
   id SERIAL PRIMARY KEY,
   dog_id INT REFERENCES pups(id),
-  owner_name TEXT VARCHAR(255),
+  owner_name TEXT
 );
 
 CREATE TABLE IF NOT EXISTS vets (
   id SERIAL PRIMARY KEY,
   dog_id INT REFERENCES pups(id),
-  vet_name TEXT VARCHAR(255),
-  vet_address VARCHAR(255),
-  vet_phone INT,
+  vet_name TEXT,
+  vet_address TEXT,
+  vet_phone TEXT
 );
 
 CREATE TABLE IF NOT EXISTS medications (
   id SERIAL PRIMARY KEY,
   dog_id INT REFERENCES pups(id),
-  medication_name TEXT VARCHAR(255),
-  medication_dose TEXT VARCHAR(255),
+  medication_name TEXT,
+  medication_dose TEXT
 );
 
 CREATE TABLE IF NOT EXISTS tasks (
   id SERIAL PRIMARY KEY,
-  owner_id REFERENCES owners(id),
-  task_name TEXT VARCHAR(255),
-  task_status TEXT VARCHAR(255)
+  owner_id INT REFERENCES owners(id),
+  task_name TEXT,
+  task_status TEXT
 );
