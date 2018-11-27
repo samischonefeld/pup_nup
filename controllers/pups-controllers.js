@@ -1,9 +1,9 @@
-const Pups = require('../models/pup.js');
+const Pup = require('../models/pup.js');
 
 const pupController = {};
 
 pupController.index = (req, res) => {
-  Pups.findAll()
+  Pup.findAll()
   .then( pups => {
     res.json({
       message: 'ok',
@@ -17,7 +17,7 @@ pupController.index = (req, res) => {
 };
 
 pupController.show = (req, res) => {
-  Pups.findById(req.params.id)
+  Pup.findById(req.params.id)
     .then( pup => {
       res.json({
         message: 'ok',
@@ -31,7 +31,7 @@ pupController.show = (req, res) => {
 };
 
 pupController.create = (req, res) => {
-  Pups.create({
+  Pup.create({
     dog_name: req.body.dog_name,
     dog_age: req.body.dog_age,
     dog_breed: req.body.dog_breed,
@@ -50,7 +50,7 @@ pupController.create = (req, res) => {
 };
 
 pupController.update = (req, res) => {
-  Pups.update({
+  Pup.update({
     dog_name: req.body.dog_name,
     dog_age: req.body.dog_age,
     dog_breed: req.body.dog_breed,
@@ -71,7 +71,7 @@ pupController.update = (req, res) => {
 };
 
 pupController.destroy = (req, res) => {
-  Pups.destroy(req.params.id)
+  Pup.destroy(req.params.id)
   .then(pup => {
     res.json({
       message: 'ok',
