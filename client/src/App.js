@@ -7,6 +7,7 @@ import Register from './components/register.jsx';
 import Tasks from './components/tasks.jsx';
 import Vet from './components/vet.jsx';
 import Dog from './components/dog.jsx';
+import Owner from './components/owner.jsx';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path = '/tasks' component = { Tasks } />
         <Route path = '/vet' component = { Vet } />
         <Route path = '/dog' component = { Dog } />
+        <Route path = '/owner' component = { Owner } />
         <Route path = '/' component = { Home } />
       </Switch>
       </div>
