@@ -15,7 +15,8 @@ Owner.findById = id => {
 
 Owner.create = owner => {
   return db.one(
-    `INSERT INTO owners (owner_name)
+    `
+    INSERT INTO owners (owner_name)
     VALUES ($1)
     RETURNING * `,
     [owners.owner_name]
@@ -27,6 +28,7 @@ Owner.update = owner => {
     `
     UPDATE pups SET
       owner_name = $1
+      WHERE id = $2
       RETURNING *
     `,
     [owners.owner_name, id]
