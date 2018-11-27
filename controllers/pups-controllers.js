@@ -21,7 +21,7 @@ pupController.show = (req, res) => {
     .then( pup => {
       res.json({
         message: 'ok',
-        data: pups
+        data: pup
       });
     })
     .catch(err => {
@@ -72,7 +72,7 @@ pupController.update = (req, res) => {
 
 pupController.destroy = (req, res) => {
   Pups.destroy(req.params.id)
-  .then(icecream => {
+  .then(pup => {
     res.json({
       message: 'ok',
       data: pup,
