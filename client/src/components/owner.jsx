@@ -1,4 +1,4 @@
-import React, { Component } extends 'react';
+import React, { Component } from 'react';
 
 class Owner extends Component{
   render(){
