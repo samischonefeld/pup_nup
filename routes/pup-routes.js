@@ -7,7 +7,7 @@ pupRouter.get('/', pupController.index)
 pupRouter.post('/', pupController.create);
 pupRouter.get('/:id', pupController.show);
 pupRouter.put('/:id', pupController.update);
-pupRouter.delete('/:id', pupController.destroy)
+pupRouter.delete('/:id', pupController.destroy);
 
-module.export = pupRouter
+module.exports = pupRouter
 

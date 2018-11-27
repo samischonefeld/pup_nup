@@ -5,8 +5,8 @@ const medicationController = require('../controllers/medication-controllers.js')
 
 medicationRouter.get('/medication', medicationController.index)
 medicationRouter.post('/medication', medicationController.create);
-medicationRouter.get('/:id/medication', medicationController.show);
-medicationRouter.put('/:id/medication', pupController.update);
-medicationRouter.delete('/:id/medication', pupController.destroy)
+medicationRouter.get('/medication/:id', medicationController.show);
+medicationRouter.put('/medication/:id', pupController.update);
+medicationRouter.delete('/medication/:id', pupController.destroy)
 
-module.export = medicationRouter;
+module.exports = medicationRouter;
