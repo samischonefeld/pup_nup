@@ -18,7 +18,7 @@ const pupRoutes = require('./routes/pup-routes.js')
 
 const port = process.env.port || 3001;
 
-app.use('/pups', pupRoutes);
+app.use('/pup', pupRoutes);
 
 app.get('/', (req, res) => {
   res.send(`Welcome to Sami's final project, PupNup!`)

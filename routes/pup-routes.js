@@ -1,13 +1,13 @@
 const express = require('express');
-const pupsRouter = express.Router();
+const pupRouter = express.Router();
 
-const pupsController = require('../controllers/pups-controllers.js');
+const pupController = require('../controllers/pup-controllers.js');
 
-pupsRouter.get('/', pupsController.index)
-pupsRouter.post('/', pupsController.create);
-pupsRouter.get('/:id', pupsController.show);
-pupsRouter.put('/:id', pupsController.update);
-pupsRouter.delete('/:id', pupsController.destroy)
+pupRouter.get('/', pupController.index)
+pupRouter.post('/', pupController.create);
+pupRouter.get('/:id', pupController.show);
+pupRouter.put('/:id', pupController.update);
+pupRouter.delete('/:id', pupController.destroy)
 
-module.export = pupsRouter
+module.export = pupRouter
 
