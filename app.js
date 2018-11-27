@@ -27,6 +27,18 @@ app.get('/', (req, res) => {
 const pupRoutes = require('./routes/pup-routes.js')
 app.use('/pup', pupRoutes);
 
+const medicationRoutes = require('./routes/medication-routes.js')
+app.use('/medication', medicationRoutes);
+
+const ownerRoutes = require('./routes/owner-routes.js')
+app.use('/owner', ownerRoutes)
+
+const taskRoutes = require('./routes/task-routes.js')
+app.use('/task', taskRoutes)
+
+const vetRoutes = require('./routes/vet-routes.js')
+app.use('/vet', vetRoutes)
+
 app.use('*', (req, res) => {
   res.status(400).json({
     message: 'Endpoint not found!',
