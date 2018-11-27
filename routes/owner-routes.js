@@ -3,10 +3,10 @@ const ownerRouter = express.Router();
 
 const ownerController = require('../controllers/owner-controllers.js');
 
-ownerRouter.get('/medication', ownerController.index)
-ownerRouter.post('/medication', ownerController.create);
-ownerRouter.get('/medication/:id', ownerController.show);
-ownerRouter.put('/medication/:id', ownerController.update);
-ownerRouter.delete('/medication/:id', ownerController.destroy)
+ownerRouter.get('/owner', ownerController.index)
+ownerRouter.post('/owner', ownerController.create);
+ownerRouter.get('/owner/:id', ownerController.show);
+ownerRouter.put('/owner/:id', ownerController.update);
+ownerRouter.delete('/owner/:id', ownerController.destroy)
 
 module.exports = ownerRouter;
