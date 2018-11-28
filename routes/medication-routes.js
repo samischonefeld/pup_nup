@@ -3,10 +3,10 @@ const medicationRouter = express.Router();
 
 const medicationController = require('../controllers/medication-controllers.js');
 
-medicationRouter.get('/medication', medicationController.index)
-medicationRouter.post('/medication', medicationController.create);
-medicationRouter.get('/medication/:id', medicationController.show);
-medicationRouter.put('/medication/:id', medicationController.update);
-medicationRouter.delete('/medication/:id', medicationController.destroy)
+medicationRouter.get('/', medicationController.index)
+medicationRouter.post('/', medicationController.create);
+medicationRouter.get('/:id', medicationController.show);
+medicationRouter.put('/:id', medicationController.update);
+medicationRouter.delete('/:id', medicationController.destroy)
 
 module.exports = medicationRouter;

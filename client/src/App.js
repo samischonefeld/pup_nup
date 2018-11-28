@@ -10,6 +10,7 @@ import Dog from './components/dog.jsx';
 import Owner from './components/owner.jsx';
 import Landing from './components/landing.jsx';
 import Medication from './components/medication.jsx';
+import DogAddForm from './components/dogAddForm.jsx';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
       <Switch>
         <Route exact path = '/login' component = { Login } />
         <Route exact path = '/register' component = { Register } />
+        <Route exact path = '/dogaddform' component = {DogAddForm} />
         <Route exact path = '/landing' component = { Landing } />
         <Route exact path = '/tasks' component = { Tasks } />
         <Route exact path = '/vet' component = { Vet } />
