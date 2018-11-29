@@ -35,7 +35,7 @@ handleRegister(e){
     })
     console.log(res)
   }).then((res) => this.setState(prevState => ({
-    id: this.props.match.params.id
+    id: res.data.data.id
   })))
   .catch(err => console.log(err))
 }
