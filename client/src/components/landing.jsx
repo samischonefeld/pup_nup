@@ -5,10 +5,11 @@ function Landing(){
   return(
     <div>
     this is the user landing page
-    <Link to='/dog'> Dog </Link>
-    <Link to = '/owner'> Owner </Link>
-    <Link to = '/medication'> Medication </Link>
-    <Link to = '/tasks'> Task </Link>
+    <Link to='/dog/:id'> Dog </Link>
+    <Link to = '/owner/:id'> Owner </Link>
+    <Link to = '/dog/:id/vet'> Vet </Link>
+    <Link to = '/dog/:id/vet/medication'> Medication </Link>
+    <Link to = '/dog/:id/tasks'> Task </Link>
     </div>
     )
 }

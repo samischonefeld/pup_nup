@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
-class vetForm extends Component {
+
+class VetForm extends Component {
   state = {
     vet_name: '',
     vet_address: '',
@@ -88,4 +88,4 @@ handleEdit(e){
   }
 }
 
-export default vetForm
+export default VetForm

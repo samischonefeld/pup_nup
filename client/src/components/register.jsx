@@ -3,14 +3,12 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class Register extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
+
+  state = {
       dog_name: '',
       password: '',
       id: '',
       fireRedirect: false,
-    }
   }
 
 handleInputChange(e){
@@ -28,15 +26,10 @@ handleRegister(e){
     dog_name: this.state.dog_name,
     password: this.state.password
   }).then((res) => {
-    axios.get('/pup', {
-      params: {
-        dog_name: this.state.dog_name
-      }
+      this.setState({id: res.data.data.id})
+      console.log(this.state.id)
     })
-    console.log(res)
-  }).then((res) => this.setState(prevState => ({
-    id: res.data.data.id
-  })))
+  // })
   .catch(err => console.log(err))
 }
 
