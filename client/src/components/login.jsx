@@ -14,7 +14,7 @@ class Login extends Component {
   }
 
   handleInputChange(e){
-    console.log(e.target.value)
+    console.log(`this is the input change`, e.target.value)
     const name = e.target.name
     const value = e.target.value
     this.setState(prevState => ({
@@ -24,6 +24,7 @@ class Login extends Component {
 
   handleLogin(e){
     e.preventDefault()
+    console.log(`this is the submit`, this.state.dog_name)
     axios.post('/pup', {
       dog_name: this.state.dog_name,
       password: this.state.password
@@ -53,7 +54,7 @@ class Login extends Component {
         <label>
         Password
         <input
-          type = "password"
+          type = "text"
           name = "password"
           value = {this.state.password}
           required
@@ -64,7 +65,7 @@ class Login extends Component {
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.id}`} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/landing`} /> : ''}
       </div>
       )
 

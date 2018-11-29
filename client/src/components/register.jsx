@@ -8,23 +8,42 @@ class Register extends Component{
     this.state = {
       dog_name: '',
       password: '',
+      id: '',
       fireRedirect: false,
     }
   }
 
-  handleInputChange(e){
-
-  }
-
-  handleSubmit(e){
-
-  }
-
-handleRegister(e){
-
+handleInputChange(e){
+  console.log(e.target.value)
+  const name = e.target.name
+  const value = e.target.value
+  this.setState(prevState => ({
+    [name]:value
+  }))
 }
 
-  render(){
+handleRegister(e){
+  e.preventDefault()
+  axios.post('/pup', {
+    dog_name: this.state.dog_name,
+    password: this.state.password
+  }).then((res) => {
+    axios.get('/pup', {
+      params: {
+        dog_name: this.state.dog_name
+      }
+    })
+    console.log(res)
+  }).then((res) => this.setState(prevState => ({
+    id: this.props.match.params.id
+  })))
+  .catch(err => console.log(err))
+}
+
+
+
+
+render(){
     return(
       <div>
       <div className = 'login_container'>
@@ -42,18 +61,18 @@ handleRegister(e){
         <label>
         Password
         <input
-          type = "password"
+          type = "text"
           name = "password"
           value = {this.state.password}
           required
           onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
-        <button onClick = {(e) => this.handleLogin(e)}>
+        <button onClick = {(e) => this.handleRegister(e)}>
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.newId}`} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.id}`} /> : ''}
       </div>
       )
   }

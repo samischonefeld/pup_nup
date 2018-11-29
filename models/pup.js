@@ -13,7 +13,7 @@ Pup.findById = id => {
   );
 };
 
-Pup.create = pup => {
+Pup.create = pups => {
   return db.one(
     `INSERT INTO pups (dog_name, dog_age, dog_breed, dog_image)
     VALUES ($1, $2, $3, $4)
@@ -22,7 +22,7 @@ Pup.create = pup => {
   );
 };
 
-Pup.update = pup => {
+Pup.update = pups => {
   return db.one(
     `
     UPDATE pups SET
