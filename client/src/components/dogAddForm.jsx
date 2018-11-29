@@ -8,7 +8,7 @@ class DogAddForm extends Component {
     dog_age: '',
     dog_breed: '',
     dog_image: '',
-    newId: '',
+    id: '',
     fireRedirect: false,
   };
 
@@ -30,8 +30,12 @@ class DogAddForm extends Component {
       dog_image: this.state.dog_image
     }).then(res => {
       this.setState({
-        newId: res.data.data.id,
         fireRedirect: true
+      })
+    }).then(res => {
+      axios.get('/pup', {
+        //filter through dog name to match with this.state.dog_name to pull new id
+        //then set the state of id to the new id
       })
     })
   }
@@ -83,7 +87,7 @@ class DogAddForm extends Component {
         <input type = 'submit' value = "Submit" />
       </form>
       {this.state.fireRedirect
-        ?<Redirect push to={`/dog/${this.state.newId}`} />: ''}
+        ?<Redirect push to={`/dog/${this.state.id}`} />: ''}
       </div>
     )
   }

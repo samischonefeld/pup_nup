@@ -20,13 +20,13 @@ class App extends Component {
       <Switch>
         <Route exact path = '/login' component = { Login } />
         <Route exact path = '/register' component = { Register } />
-        <Route exact path = '/dogaddform' component = {DogAddForm} />
-        <Route exact path = '/landing' component = { Landing } />
-        <Route exact path = '/tasks' component = { Tasks } />
-        <Route exact path = '/vet' component = { Vet } />
-        <Route exact path = '/medication' component = { Medication } />
-        <Route exact path = '/dog' component = { Dog } />
-        <Route exact path = '/owner' component = { Owner } />
+        <Route exact path = '/dogaddform/:id' component = {DogAddForm} />
+        <Route exact path = '/landing/:id' component = { Landing } />
+        <Route exact path = '/tasks/:id' component = { Tasks } />
+        <Route exact path = '/vet/:id' component = { Vet } />
+        <Route exact path = '/medication/:id' component = { Medication } />
+        <Route exact path = '/dog/:id' component = { Dog } />
+        <Route exact path = '/owner:id' component = { Owner } />
         <Route exact path = '/' component = { Home } />
       </Switch>
       </div>

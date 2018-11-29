@@ -8,21 +8,31 @@ class Login extends Component {
     this.state = {
       dog_name: '',
       password: '',
-      newId: '',
+      id: '',
       fireRedirect: false,
     }
   }
 
   handleInputChange(e){
-
-  }
-
-  handleSubmit(e){
-
+    console.log(e.target.value)
+    const name = e.target.name
+    const value = e.target.value
+    this.setState(prevState => ({
+      [name]: value
+    }))
   }
 
   handleLogin(e){
-
+    e.preventDefault()
+    axios.post('/pup', {
+      dog_name: this.state.dog_name,
+      password: this.state.password
+    }).then(res => {
+      this.setState({
+        id: res.data.id,
+        fireRedirect: true
+      })
+    })
   }
 
   render(){
@@ -54,7 +64,7 @@ class Login extends Component {
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.newId}`} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.id}`} /> : ''}
       </div>
       )
 
