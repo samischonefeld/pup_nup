@@ -3,12 +3,19 @@ const db = require('../db/config');
 const Owner = {};
 
 Owner.findAll = () => {
-  return db.query(`SELECT * FROM owners ORDER by id ASC`)
+  return db.query(
+    `
+    SELECT * FROM owners
+    ORDER by id ASC
+    `)
 };
 
 Owner.findById = id => {
-  return db.oneOrNone(`SELECT * FROM owners
-    WHERE id = $1`,
+  return db.oneOrNone(
+    `
+    SELECT * FROM owners
+    WHERE dog_id = $1
+    `,
   [id]
   );
 };
@@ -23,15 +30,15 @@ Owner.create = owner => {
   );
 };
 
-Owner.update = (owner, id) => {
+Owner.update = (owners, id) => {
   return db.one(
     `
     UPDATE pups SET
       owner_name = $1
-      WHERE id = $2
+      WHERE dog_id = $2
       RETURNING *
     `,
-    [owners.owner_name, id]
+    [owners.owner_name, owners.dog_id]
   );
 };
 

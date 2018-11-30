@@ -5,8 +5,8 @@ const ownerController = require('../controllers/owner-controllers.js');
 
 ownerRouter.get('/', ownerController.index)
 ownerRouter.post('/', ownerController.create);
-ownerRouter.get('/:id', ownerController.show);
-ownerRouter.put('/:id', ownerController.update);
-ownerRouter.delete('/:id', ownerController.destroy)
+ownerRouter.get('/:dog_id', ownerController.show);
+ownerRouter.put('/:dog_id', ownerController.update);
+ownerRouter.delete('/:dog_id', ownerController.destroy)
 
 module.exports = ownerRouter;

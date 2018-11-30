@@ -3,6 +3,7 @@ import axios from 'axios';
 import DogAddForm from './dogAddForm.jsx';
 import Vet from './vet.jsx';
 import Medication from './medication.jsx';
+import Owner from './owner.jsx'
 
 class Dog extends Component{
   state = {
@@ -46,6 +47,9 @@ componentDidMount(){
       </div>
       <div>
       <Medication {...this.props} />
+      </div>
+      <div>
+      <Owner {...this.props} />
       </div>
       </div>
       )

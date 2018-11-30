@@ -17,7 +17,7 @@ ownerController.index = (req, res) => {
 };
 
 ownerController.show = (req, res) => {
-  Owner.findById(req.params.id)
+  Owner.findById(req.params.dog_id)
     .then( owner => {
       res.json({
         message: 'ok',
@@ -50,7 +50,7 @@ ownerController.update = (req, res) => {
   Owner.update({
        owner_name: req.body.owner_name,
   },
-    req.params.id,
+    req.params.dog_id,
   )
   .then( owner => {
     res.json({
