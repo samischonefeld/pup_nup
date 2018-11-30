@@ -5,7 +5,7 @@ import VetForm from './vetForm.jsx';
 
 class Vet extends Component {
   state = {
-    vet: 'a',
+    vet: '',
     getData: false
   }
 
@@ -37,7 +37,7 @@ render(){
       </ul>
     </div>
     <div>
-    <VetForm />
+    <VetForm {...this.props} />
 
     </div>
     </div>

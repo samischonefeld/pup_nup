@@ -20,7 +20,7 @@ Vet.findById = id => {
   );
 };
 
-Vet.create = vet => {
+Vet.create = vets => {
   return db.one(
     `
     INSERT INTO vets
@@ -32,14 +32,14 @@ Vet.create = vet => {
   );
 };
 
-Vet.update = (vet, id) => {
+Vet.update = (vets, id) => {
   return db.one(
     `
     UPDATE vets SET
       vet_name = $1,
       vet_address = $2,
       vet_phone = $3
-      WHERE id = $4
+      WHERE dog_id = $4
       RETURNING *
     `,
     [vets.vet_name, vets.vet_address, vets.vet_phone, id]

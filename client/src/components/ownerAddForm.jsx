@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 
 
 class OwnerAddForm extends Component {
@@ -8,15 +8,7 @@ state = {
 
 }
 componentDidMount(){
-  axios.get(`/owner/${this.props.match.params.dog_id}`)
-  .then(res =>{
-    this.setState => {
-      getData: true,
 
-    }
-  }
-    )
-  }
 }
 
   render(){

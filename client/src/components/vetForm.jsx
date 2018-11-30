@@ -7,8 +7,11 @@ class VetForm extends Component {
     vet_name: '',
     vet_address: '',
     vet_phone: '',
-    fireRedirect: false,
     dog_id: ''
+  }
+
+  componentDidMount(){
+    console.log('this is props on vet form', this.props)
   }
 
   handleInputChange(e){
@@ -36,18 +39,18 @@ class VetForm extends Component {
 
 handleEdit(e){
   e.preventDefault()
-  axios.put(`/vet/${this.props.match.params.dog_id}/:vetId`, {
+  console.log('this is params:', this.props.match.params.id)
+  axios.put(`/vet/${this.props.match.params.id}`, {
     vet_name: this.state.vet_name,
     vet_address: this.state.vet_address,
     vet_phone: this.state.vet_phone,
   }).then(res => {
-    this.setState({
-      fireReidrect: true
-    })
-  })
+    console.log(res)
+  }).catch(err => console.log(err));
 }
 
   render(){
+
     return(
       <div>
       <form className = "vet_form" onSubmit = {(e) => this.handleAdd(e)} >

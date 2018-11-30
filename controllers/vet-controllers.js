@@ -54,7 +54,7 @@ vetController.update = (req, res) => {
     vet_address: req.body.vet_address,
     vet_phone: req.body.vet_phone
   },
-    req.params.id,
+    req.params.dog_id,
   )
   .then( vet => {
     res.json({
