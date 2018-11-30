@@ -33,12 +33,12 @@ Owner.create = owner => {
 Owner.update = (owners, id) => {
   return db.one(
     `
-    UPDATE pups SET
+    UPDATE owners SET
       owner_name = $1
       WHERE dog_id = $2
       RETURNING *
     `,
-    [owners.owner_name, owners.dog_id]
+    [owners.owner_name, id]
   );
 };
 
