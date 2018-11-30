@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-function Landing(){
+class Landing extends Component{
+
+    componentDidMount(){
+
+        console.log('this is supposed to be props id', this.props.match.params.id)
+    }
+
+    render(){
   return(
     <div>
-    this is the user landing page
-    <Link to='/dog/:id'> Dog </Link>
-    <Link to = '/owner/:id'> Owner </Link>
-    <Link to = '/dog/:id/vet'> Vet </Link>
-    <Link to = '/dog/:id/vet/medication'> Medication </Link>
-    <Link to = '/dog/:id/tasks'> Task </Link>
+    <Link to= {`/dog/${this.props.match.params.id}`} > Dog </Link>
+    <Link to = {`/dog/${this.props.match.params.id}/owner`} > Owner </Link>
+    <Link to = {`/dog/${this.props.match.params.id}/vet`} > Vet </Link>
+    <Link to = {`/dog/${this.props.match.params.id}/vet/medication`} > Medication </Link>
+    <Link to = {`/dog/${this.props.match.params.id}/tasks`} > Task </Link>
     </div>
     )
+    }
 }
 
 export default Landing;

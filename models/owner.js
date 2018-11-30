@@ -23,7 +23,7 @@ Owner.create = owner => {
   );
 };
 
-Owner.update = owner => {
+Owner.update = (owner, id) => {
   return db.one(
     `
     UPDATE pups SET

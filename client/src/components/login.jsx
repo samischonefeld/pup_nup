@@ -24,14 +24,12 @@ class Login extends Component {
 
   handleLogin(e){
     e.preventDefault()
-    console.log(`this is the submit`, this.state.dog_name)
-    axios.post('/pup', {
-      dog_name: this.state.dog_name,
-      password: this.state.password
-    }).then(res => {
+    axios.get(`/pup/${this.state.match.params.dog_name}`)
+    .then(res => {
+      console.log(res)
       this.setState({
-        id: res.data.id,
-        fireRedirect: true
+        id: res.data.data.id,
+        fireRedirect: true,
       })
     })
   }
@@ -65,7 +63,7 @@ class Login extends Component {
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/landing`} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/dog/${this.state.id}/landing/`} id = {this.state.id} /> : ''}
       </div>
       )
 

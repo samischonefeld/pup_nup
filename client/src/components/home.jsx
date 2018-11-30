@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Register from './register';
+import Login from './login';
+
 function Home() {
   return (
     <div>
     this is Home
-    <ul>
-    <li><Link to='/login'> LogIn </Link></li>
-    <li><Link to='/register'>Register</Link></li>
-    </ul>
+    <Login />
+    <p>Register</p>
+    <Register />
     </div>
     )
 }

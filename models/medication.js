@@ -32,7 +32,7 @@ Medication.create = medication => {
   );
 };
 
-Medication.update = medication => {
+Medication.update = (medication, id) => {
   return db.one(
     `
     UPDATE medications SET

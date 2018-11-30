@@ -22,7 +22,7 @@ Pup.create = pups => {
   );
 };
 
-Pup.update = pups => {
+Pup.update = (pups, id) => {
   return db.one(
     `
     UPDATE pups SET

@@ -32,7 +32,7 @@ Vet.create = vet => {
   );
 };
 
-Vet.update = vet => {
+Vet.update = (vet, id) => {
   return db.one(
     `
     UPDATE vets SET

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+
 
 class DogAddForm extends Component {
   state = {
@@ -8,11 +8,11 @@ class DogAddForm extends Component {
     dog_age: '',
     dog_breed: '',
     dog_image: '',
-    id: '',
+    dog_id_form: '',
     fireRedirect: false,
   };
 
-  handleInputChange(e){
+handleInputChange(e){
     console.log(e.target.value)
     const name = e.target.name
     const value = e.target.value
@@ -23,22 +23,17 @@ class DogAddForm extends Component {
 
   handleFormSubmit(e){
     e.preventDefault()
-    axios.post('/pup', {
+    console.log('this is props on submit this.props.dog.id', this.props.dog.id)
+    axios.put(`/pup/${this.props.dog.id}`, {
       dog_name: this.state.dog_name,
       dog_age: this.state.dog_age,
       dog_breed: this.state.dog_breed,
       dog_image: this.state.dog_image
     }).then(res => {
-      this.setState({
-        fireRedirect: true
-      })
-    }).then(res => {
-      axios.get('/pup', {
-        //filter through dog name to match with this.state.dog_name to pull new id
-        //then set the state of id to the new id
-      })
-    })
+      console.log(res);
+    }).catch(err => console.log(err));
   }
+
 
   render(){
     return(
@@ -86,11 +81,10 @@ class DogAddForm extends Component {
         </label>
         <input type = 'submit' value = "Submit" />
       </form>
-      {this.state.fireRedirect
-        ?<Redirect push to={`/dog/${this.state.id}`} />: ''}
       </div>
     )
   }
 }
+//     console.log('this is props with match params', this.props.match.params.dog.id)
 
 export default DogAddForm;

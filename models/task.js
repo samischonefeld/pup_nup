@@ -32,7 +32,7 @@ Task.create = task => {
   );
 };
 
-Task.update = task => {
+Task.update = (task, id) => {
   return db.one(
     `
     UPDATE tasks SET

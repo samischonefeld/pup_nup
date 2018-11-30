@@ -26,7 +26,10 @@ handleRegister(e){
     dog_name: this.state.dog_name,
     password: this.state.password
   }).then((res) => {
-      this.setState({id: res.data.data.id})
+      this.setState({
+        id: res.data.data.id,
+        fireRedirect: true,
+      })
       console.log(this.state.id)
     })
   // })
@@ -37,6 +40,9 @@ handleRegister(e){
 
 
 render(){
+
+  const theID = this.state.id;
+
     return(
       <div>
       <div className = 'login_container'>
@@ -65,7 +71,7 @@ render(){
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/landing/${this.state.id}`} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/dog/${theID}/landing/`} id = {theID}/> : ''}
       </div>
       )
   }
