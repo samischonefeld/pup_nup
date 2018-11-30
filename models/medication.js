@@ -14,13 +14,13 @@ Medication.findById = id => {
   return db.oneOrNone(
     `
     SELECT * FROM medications
-    WHERE id = $1
+    WHERE dog_id = $1
     `,
   [id]
   );
 };
 
-Medication.create = medication => {
+Medication.create = medications => {
   return db.one(
     `
     INSERT INTO medications
@@ -32,13 +32,13 @@ Medication.create = medication => {
   );
 };
 
-Medication.update = (medication, id) => {
+Medication.update = (medications, id) => {
   return db.one(
     `
     UPDATE medications SET
       medication_name = $1,
-      medication_dose = $2,
-      WHERE id = $3
+      medication_dose = $2
+      WHERE dog_id = $3
       RETURNING *
     `,
     [medications.medication_name, medications.medication_dose, id]

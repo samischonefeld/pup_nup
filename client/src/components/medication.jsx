@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import MedicationForm from './medicationForm.jsx';
 
 class Medication extends Component{
 state = {
-    medication: null,
+    medication: '',
     getData: false
 }
 
 componentDidMount(){
-  console.log('this is props: ', this.props)
-  axios.get(`/vet/${this.props.match.params.dog_id}`)
+  console.log('this is props in medication: ', this.props)
+  axios.get(`/medication/${this.props.match.params.id}`)
     .then(res => {
       this.setState({
         getData: true,
-        vet: res.data.data
+        medication: res.data.data
       })
+      console.log('this is medication state', this.state.medication)
     }).catch(err => console.log(err))
 }
 
@@ -26,10 +27,10 @@ render(){
       <h1>Your Dog's Medication</h1>
       </div>
       <div className = "med_info">
-      <h2>MEDICATION NAME HERE</h2>
-      <p>MEDICATION DOSE HERE  </p>
+      <h2>{this.state.medication.medication_name}</h2>
+      <p>{this.state.medication.medication_dose}</p>
       </div>
-      <Link to = '/dog/:id'> Dog </Link>
+      <MedicationForm {...this.props}/>
       </div>
       )
   }

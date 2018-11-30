@@ -17,7 +17,7 @@ medicationController.index = (req, res) => {
 };
 
 medicationController.show = (req, res) => {
-  Medication.findById(req.params.id)
+  Medication.findById(req.params.dog_id)
     .then( medication => {
       res.json({
         message: 'ok',
@@ -52,7 +52,7 @@ medicationController.update = (req, res) => {
     medication_name: req.body.medication_name,
     medication_dose: req.body.medication_dose
   },
-    req.params.id,
+    req.params.dog_id,
   )
   .then( medication => {
     res.json({

@@ -6,8 +6,7 @@ class VetForm extends Component {
   state = {
     vet_name: '',
     vet_address: '',
-    vet_phone: '',
-    dog_id: ''
+    vet_phone: ''
   }
 
   componentDidMount(){
