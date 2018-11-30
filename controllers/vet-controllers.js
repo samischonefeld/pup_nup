@@ -17,7 +17,7 @@ vetController.index = (req, res) => {
 };
 
 vetController.show = (req, res) => {
-  Vet.findById(req.params.id)
+  Vet.findById(req.params.dog_id)
     .then( vet => {
       res.json({
         message: 'ok',

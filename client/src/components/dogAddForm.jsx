@@ -4,7 +4,6 @@ import axios from 'axios';
 
 class DogAddForm extends Component {
   state = {
-    dog_name: '',
     dog_age: '',
     dog_breed: '',
     dog_image: '',
@@ -23,9 +22,8 @@ handleInputChange(e){
 
   handleFormSubmit(e){
     e.preventDefault()
-    console.log('this is props on submit this.props.dog.id', this.props.dog.id)
-    axios.put(`/pup/${this.props.dog.id}`, {
-      dog_name: this.state.dog_name,
+
+    axios.put(`/pup/${this.props.match.params.id}`, {
       dog_age: this.state.dog_age,
       dog_breed: this.state.dog_breed,
       dog_image: this.state.dog_image
@@ -39,16 +37,6 @@ handleInputChange(e){
     return(
       <div className = "dog_form">
       <form onSubmit = {(e) => this.handleFormSubmit(e)}>
-        <label>
-          Dog Name
-          <input
-            type = "text"
-            placeholder = "Name"
-            name = "dog_name"
-            value = {this.state.dog_name}
-            onChange = {(e) => this.handleInputChange(e)}
-          />
-        </label>
         <label>
           Dog Age
           <input
@@ -85,6 +73,5 @@ handleInputChange(e){
     )
   }
 }
-//     console.log('this is props with match params', this.props.match.params.dog.id)
 
 export default DogAddForm;

@@ -51,7 +51,6 @@ pupController.create = (req, res) => {
 
 pupController.update = (req, res) => {
   Pup.update({
-    dog_name: req.body.dog_name,
     dog_age: req.body.dog_age,
     dog_breed: req.body.dog_breed,
     dog_image: req.body.dog_image

@@ -7,7 +7,8 @@ Pup.findAll = () => {
 };
 
 Pup.findById = id => {
-  return db.oneOrNone(`SELECT * FROM pups
+  return db.oneOrNone(
+    `SELECT * FROM pups
     WHERE id = $1`,
   [id]
   );
@@ -26,14 +27,13 @@ Pup.update = (pups, id) => {
   return db.one(
     `
     UPDATE pups SET
-      dog_name = $1,
-      dog_age = $2,
-      dog_breed = $3,
-      dog_image = $4
-      WHERE id = $5
+      dog_age = $1,
+      dog_breed = $2,
+      dog_image = $3
+      WHERE id = $4
       RETURNING *
     `,
-    [pups.dog_name, pups.dog_age, pups.dog_breed, pups.dog_image, id]
+    [pups.dog_age, pups.dog_breed, pups.dog_image, id]
   );
 };
 

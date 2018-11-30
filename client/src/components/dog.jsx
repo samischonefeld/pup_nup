@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DogAddForm from './dogAddForm.jsx';
+import Vet from './vet.jsx';
 
 class Dog extends Component{
   state = {
@@ -22,8 +23,10 @@ componentDidMount(){
   }
 
   render(){
+    console.log('this is props 2.0', this.props)
     return(
       <div>
+      <div className = "dog_info">
       <div className = "dog_image">
         <img src = {this.state.dog.dog_image} alt ={this.state.dog.dog_name} />
       </div>
@@ -35,7 +38,9 @@ componentDidMount(){
       <h3>{this.state.dog.dog_breed}</h3>
       <h3>{this.state.dog.dog_age}</h3>
       </div>
-      <DogAddForm {...this.state} />
+      <DogAddForm  {...this.props} />
+      </div>
+      <Vet {...this.props} />
       </div>
       )
   }
@@ -43,13 +48,3 @@ componentDidMount(){
 
 export default Dog;
 
-      // <div className = "dog_image">
-      //   <img src = {this.state.dog.dog_image} alt ={this.state.dog.dog_name} />
-      // </div>
-      // <div className = "dog_name">
-      // <h2>{this.state.dog.dog_name}</h2>
-      // </div>
-      // <div>
-      // <h3>{this.state.dog.dog_breed}</h3>
-      // <h3>{this.state.dog.dog_age}</h3>
-      // </div>

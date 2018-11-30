@@ -26,8 +26,8 @@ render(){
       <h1>Your Dog's Medication</h1>
       </div>
       <div className = "med_info">
-      <h2>{this.state.medication.medication_name}</h2>
-      <p>{this.state.medication.medication_dose} </p>
+      <h2>MEDICATION NAME HERE</h2>
+      <p>MEDICATION DOSE HERE  </p>
       </div>
       <Link to = '/dog/:id'> Dog </Link>
       </div>

@@ -14,7 +14,7 @@ Vet.findById = id => {
   return db.oneOrNone(
     `
     SELECT * FROM vets
-    WHERE id = $1
+    WHERE dog_id = $1
     `,
   [id]
   );

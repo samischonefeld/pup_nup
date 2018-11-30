@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import VetForm from './vetForm.jsx';
+
 
 class Vet extends Component {
   state = {
-    vet: null,
+    vet: 'a',
     getData: false
   }
 
   componentDidMount(){
-    console.log('this is props from dog: ', this.props)
-    axios.get(`/vet/${this.props.match.params.dog_id}`)
-      .then(res => {
+    console.log('this is props on vet: ', this.props.match.params.id)
+    axios.get(`/vet/${this.props.match.params.id}`)
+      .then(async res => {
         this.setState({
           getData: true,
           vet: res.data.data
         })
+        await console.log('this is vet info', res.data)
+        console.log(this.state.vet.vet_name)
       }).catch(err => console.log(err))
   }
 
@@ -33,10 +36,16 @@ render(){
         <li>{this.state.vet.vet_phone}</li>
       </ul>
     </div>
-    <Link to ='/medication/:id'> Medications </Link>
+    <div>
+    <VetForm />
+
+    </div>
     </div>
     )
   }
 }
 
 export default Vet;
+
+
+

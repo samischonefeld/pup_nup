@@ -36,7 +36,7 @@ class VetForm extends Component {
 
 handleEdit(e){
   e.preventDefault()
-  axios.put(`/vet/${this.props.match.params.id}`, {
+  axios.put(`/vet/${this.props.match.params.dog_id}/:vetId`, {
     vet_name: this.state.vet_name,
     vet_address: this.state.vet_address,
     vet_phone: this.state.vet_phone,
