@@ -8,7 +8,8 @@ import Owner from './owner.jsx'
 class Dog extends Component{
   state = {
     dog: '',
-    getData: false
+    getData: false,
+    toggleDogForm: false
   }
 
 componentDidMount(){
@@ -24,6 +25,11 @@ componentDidMount(){
       }).catch(err => console.log(err))
   }
 
+toggleDogForm(){
+      this.setState(prevState => ({
+      toggleDogForm: !prevState.toggleRegister
+    }))
+}
   render(){
     console.log('this is props 2.0', this.props)
     return(
@@ -40,7 +46,10 @@ componentDidMount(){
       <h3>{this.state.dog.dog_breed}</h3>
       <h3>{this.state.dog.dog_age}</h3>
       </div>
+      <button onClick={() => this.toggleDogForm()}>Edit Dog</button>
+      {this.state.toggleDogForm &&
       <DogAddForm  {...this.props} />
+      }
       </div>
       <div className = "vet_info">
       <Vet {...this.props} />

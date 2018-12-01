@@ -4,7 +4,9 @@ class Tasks extends Component {
   render(){
     return(
       <div>
-      THIS IS TASKS
+     <h1> These are your tasks </h1>
+     <div className = "task_list">
+     </div>
       </div>
       )
   }
