@@ -34,32 +34,32 @@ toggleDogForm(){
     console.log('this is props 2.0', this.props)
     return(
       <div>
-      <div className = "dog_info">
-      <div className = "dog_image">
-        <img src = {this.state.dog.dog_image} alt ={this.state.dog.dog_name} />
-      </div>
-      <div className = "dog_name">
-      <h2>{this.state.dog.dog_name}</h2>
-      <h3>{this.state.DogId}</h3>
-      </div>
-      <div>
-      <h3>{this.state.dog.dog_breed}</h3>
-      <h3>{this.state.dog.dog_age}</h3>
-      </div>
-      <button onClick={() => this.toggleDogForm()}>Edit Dog</button>
-      {this.state.toggleDogForm &&
-      <DogAddForm  {...this.props} />
-      }
-      </div>
-      <div className = "vet_info">
-      <Vet {...this.props} />
-      </div>
-      <div>
-      <Medication {...this.props} />
-      </div>
-      <div>
-      <Owner {...this.props} />
-      </div>
+        <div className = "dog_info">
+            <div className = "dog_image">
+              <img src = {this.state.dog.dog_image} alt ={this.state.dog.dog_name} />
+            </div>
+          <div className = "dog_name">
+            <h2>{this.state.dog.dog_name}</h2>
+            <h3>{this.state.DogId}</h3>
+          </div>
+          <div>
+            <h3>{this.state.dog.dog_breed}</h3>
+            <h3>{this.state.dog.dog_age}</h3>
+          </div>
+          <button onClick={() => this.toggleDogForm()}>Edit Dog</button>
+            {this.state.toggleDogForm &&
+            <DogAddForm  {...this.props} />
+            }
+        </div>
+        <div className = "vet_container">
+          <Vet {...this.props} />
+        </div>
+        <div className = "medication_container">
+          <Medication {...this.props} />
+        </div>
+        <div className = "owner_container">
+          <Owner {...this.props} />
+        </div>
       </div>
       )
   }
