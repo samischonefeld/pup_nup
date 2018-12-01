@@ -27,7 +27,7 @@ componentDidMount(){
 
 toggleDogForm(){
       this.setState(prevState => ({
-      toggleDogForm: !prevState.toggleRegister
+      toggleDogForm: !prevState.toggleDogForm
     }))
 }
   render(){

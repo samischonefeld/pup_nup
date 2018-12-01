@@ -6,7 +6,8 @@ import VetForm from './vetForm.jsx';
 class Vet extends Component {
   state = {
     vet: '',
-    getData: false
+    getData: false,
+    toggleVetForm: false
   }
 
   componentDidMount(){
@@ -22,24 +23,31 @@ class Vet extends Component {
       }).catch(err => console.log(err))
   }
 
+toggleVetForm(){
+  this.setState(prevState => ({
+        toggleVetForm: !prevState.toggleVetForm
+      }))
+}
 
 render(){
   return(
     <div>
-    <div className = "vet_title">
-    <h1>Your Dog's Medical Information</h1>
-    </div>
-    <div>
-      <ul>
-        <li>{this.state.vet.vet_name}</li>
-        <li>{this.state.vet.vet_address}</li>
-        <li>{this.state.vet.vet_phone}</li>
-      </ul>
-    </div>
-    <div>
-    <VetForm {...this.props} />
-
-    </div>
+      <div className = "vet_title">
+        <h1>Your Dog's Medical Information</h1>
+      </div>
+      <div>
+        <ul>
+          <li>{this.state.vet.vet_name}</li>
+          <li>{this.state.vet.vet_address}</li>
+          <li>{this.state.vet.vet_phone}</li>
+        </ul>
+      </div>
+      <div className = "toggleVetForm">
+        <button onClick ={() => this.toggleVetForm()}>Edit Medical Info</button>
+        {this.state.toggleVetForm &&
+          <VetForm {...this.props} />
+        }
+      </div>
     </div>
     )
   }
