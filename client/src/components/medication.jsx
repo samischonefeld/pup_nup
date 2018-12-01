@@ -5,7 +5,8 @@ import MedicationForm from './medicationForm.jsx';
 class Medication extends Component{
 state = {
     medication: '',
-    getData: false
+    getData: false,
+    toggleMedicationForm: false
 }
 
 componentDidMount(){
@@ -20,17 +21,27 @@ componentDidMount(){
     }).catch(err => console.log(err))
 }
 
+toggleMedicationForm(){
+  this.setState(prevState => ({
+    toggleMedicationForm: !prevState.toggleMedicationForm
+  }))
+}
 render(){
     return(
       <div>
-      <div className = "medication_title">
-      <h1>Your Dog's Medication</h1>
-      </div>
-      <div className = "med_info">
-      <h2>{this.state.medication.medication_name}</h2>
-      <p>{this.state.medication.medication_dose}</p>
-      </div>
-      <MedicationForm {...this.props}/>
+        <div className = "medication_title">
+          <h1>Your Dog's Medication</h1>
+        </div>
+        <div className = "med_info">
+          <h2>{this.state.medication.medication_name}</h2>
+          <p>{this.state.medication.medication_dose}</p>
+        </div>
+        <div className = "medication_form">
+          <button onClick = {() => this.toggleMedicationForm()}>Edit Medication</button>
+          {this.state.toggleMedicationForm &&
+            <MedicationForm {...this.props}/>
+          }
+        </div>
       </div>
       )
   }

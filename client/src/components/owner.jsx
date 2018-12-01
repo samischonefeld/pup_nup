@@ -5,7 +5,8 @@ import axios from 'axios';
 class Owner extends Component{
   state = {
     owner: '',
-    getData: false
+    getData: false,
+    toggleOwnerForm: false
   }
 
 componentDidMount(){
@@ -20,14 +21,24 @@ componentDidMount(){
       }).catch(err => console.log(err))
 }
 
+toggleOwnerForm(){
+  this.setState(prevState => ({
+    toggleOwnerForm: !this.prevState.toggleOwnerForm
+  }))
+}
   render(){
     return(
       <div>
-      <div className = "owner_info">
-      <h1>About the Owner</h1>
-        <p>{this.state.owner.owner_name}</p>
-      </div>
-      <OwnerAddForm {...this.props} />
+        <div className = "owner_info">
+          <h1>About the Owner</h1>
+          <p>{this.state.owner.owner_name}</p>
+        </div>
+        <div className = "owner_form">
+          <button onClick = {() => this.toggleOwnerForm()}>Edit Owner</button>
+          {this.state.toggleOwnerForm &&
+            <OwnerAddForm {...this.props} />
+          }
+        </div>
       </div>
       )
   }
