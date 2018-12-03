@@ -23,6 +23,7 @@
   padding-right: 10px;
   background-color: gold;
 }
+
 .dropdown_container{
 background-color: gold;
 width: 100%;
@@ -32,15 +33,18 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 }
+
 .dropdown_title{
   color: teal;
 }
+
 header{
   display: flex;
   justify-content: center;
   background-color: gold;
   width: 100%;
 }
+
 .title{
   color: teal;
   font-family: "Anton", sans-serif;
@@ -52,6 +56,7 @@ padding: 10px;
 width: 75%;
 background-color: teal;
 }
+
 .minor_info{
   padding: 10px;
   margin: 0px;
@@ -59,12 +64,14 @@ background-color: teal;
   font-family: "Anton", sans-serif;
   color: gold;
 }
+
 .major_info{
   padding: 10px;
   margin: 0px;
   font-size: 35px;
   font-family: "Anton", sans-serif;
 }
+
 label{
   padding: 5px;
   margin: 0px;
@@ -164,6 +171,7 @@ footer{
   margin: 0px;
   display: flex;
   justify-content: space-between;
+  border-top: 2px solid gold;
 
 }
 h3{
@@ -171,4 +179,27 @@ h3{
   padding: 10px;
   margin: 0px;
 }
-
+/*LOGIN PAGE*/
+.register_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login_register{
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.login_button{
+margin: 50px;
+}
+body{
+   background-color: teal;
+}
+.login_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

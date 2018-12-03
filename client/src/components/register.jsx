@@ -40,9 +40,6 @@ handleRegister(e){
 
 
 render(){
-
-  const theID = this.state.id;
-
     return(
       <div>
       <div className = 'login_container'>
@@ -57,6 +54,36 @@ render(){
           onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
+                <label>
+          Dog Age
+          <input
+            type = "number"
+            placeholder = "Age"
+            name = "dog_age"
+            value = {this.state.dog_age}
+            onChange = {(e) => this.handleInputChange(e)}
+          />
+        </label>
+        <label>
+          Dog Breed
+          <input
+            type = "text"
+            placeholder = "Breed"
+            name = "dog_breed"
+            value = {this.state.dog_breed}
+            onChange = {(e) => this.handleInputChange(e)}
+          />
+        </label>
+        <label>
+          Dog Image
+          <input
+            type = "text"
+            placeholder = "Image"
+            name = "dog_image"
+            value = {this.state.dog_image}
+            onChange = {(e) => this.handleInputChange(e)}
+          />
+        </label>
         <label>
         Password
         <input
@@ -68,10 +95,10 @@ render(){
         />
         </label>
         <button onClick = {(e) => this.handleRegister(e)}>
-        Login
+        Register
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/dog/${theID}/landing/`} id = {theID}/> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/dog/${this.state.id}`} id = {this.state.id}/> : ''}
       </div>
       )
   }
