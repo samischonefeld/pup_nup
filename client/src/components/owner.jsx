@@ -30,8 +30,7 @@ toggleOwnerForm(){
     return(
       <div>
         <div className = "owner_info">
-          <h1>About the Owner</h1>
-          <p>{this.state.owner.owner_name}</p>
+          <p className ="minor_info">{this.state.owner.owner_name}</p>
         </div>
         <div className = "owner_form">
           <button onClick = {() => this.toggleOwnerForm()}>Edit Owner</button>

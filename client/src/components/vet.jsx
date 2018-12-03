@@ -30,14 +30,14 @@ toggleVetForm(){
 
 render(){
   return(
-    <div>
+    <div className = "dropdown_content">
       <div>
           <p className ="minor_info">{this.state.vet.vet_name}</p>
           <p className ="minor_info">{this.state.vet.vet_address}</p>
           <p className ="minor_info">{this.state.vet.vet_phone}</p>
       </div>
       <div className = "toggleVetForm">
-        <button onClick ={() => this.toggleVetForm()}>Edit Medical Info</button>
+        <button onClick ={() => this.toggleVetForm()}>Edit Vet</button>
         {this.state.toggleVetForm &&
           <VetForm {...this.props} />
         }

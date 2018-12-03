@@ -30,11 +30,11 @@ render(){
     return(
       <div>
         <div className = "med_info">
-          <h2>{this.state.medication.medication_name}</h2>
-          <p>{this.state.medication.medication_dose}</p>
+          <p className ="minor_info">{this.state.medication.medication_name}</p>
+          <p className ="minor_info">{this.state.medication.medication_dose}</p>
         </div>
         <div className = "medication_form">
-          <button onClick = {() => this.toggleMedicationForm()}>Edit Medication</button>
+          <button onClick = {() => this.toggleMedicationForm()}>Edit Meds</button>
           {this.state.toggleMedicationForm &&
             <MedicationForm {...this.props}/>
           }
