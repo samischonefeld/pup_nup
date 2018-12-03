@@ -1,27 +1,47 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import VetForm from './vetForm.jsx';
+import VetAddForm from './vetAddForm.jsx';
 
 
 class Vet extends Component {
   state = {
     vet: '',
     getData: false,
-    toggleVetForm: false
+    toggleVetForm: false,
+    vetInfo: true,
+    vet_name: 'add',
+    vet_address: 'add',
+    vet_phone: 'add'
   }
 
+
   componentDidMount(){
-    console.log('this is props on vet: ', this.props.match.params.id)
     axios.get(`/vet/${this.props.match.params.id}`)
       .then(async res => {
-        console.log("this is vet on res", res)
         this.setState({
           getData: true,
           vet: res.data.data,
+          vet_name: res.data.data.vet_name,
+          vet_address: res.data.data.vet_address,
+          vet_phone: res.data.data.vet_phone,
         })
-        console.log('this is vet info', res.data.data)
+         this.vetInfoStatus();
+         console.log(this.state.vetInfo)
       }).catch(err => console.log(err))
   }
+
+vetInfoStatus(){
+  if(this.state.vet === 'add'){
+    this.setState(prevState => ({
+      vetInfo: false,
+    }))
+  } else {
+    this.setState(prevState => ({
+      vetInfo: true,
+    }))
+  }
+}
 
 toggleVetForm(){
   this.setState(prevState => ({
@@ -30,13 +50,15 @@ toggleVetForm(){
 }
 
 render(){
-  console.log(this.state.vet)
+
   return(
     <div className = "dropdown_content">
+    { this.state.vetInfo ? (
       <div>
-          <p className ="minor_info">{this.state.vet.vet_name}</p>
-          <p className ="minor_info">{this.state.vet.vet_address}</p>
-          <p className ="minor_info">{this.state.vet.vet_phone}</p>
+      <div>
+          <p className ="minor_info">Vet Name: {this.state.vet_name}</p>
+          <p className ="minor_info">Vet Address: {this.state.vet_address}</p>
+          <p className ="minor_info">Vet Phone: {this.state.vet_phone}</p>
       </div>
       <div className = "toggleVetForm">
         <button onClick ={() => this.toggleVetForm()}>Edit Vet</button>
@@ -44,6 +66,12 @@ render(){
           <VetForm {...this.props} />
         }
       </div>
+      </div>
+      ) : (
+      <div>
+      <VetAddForm {...this.props} />
+      </div>
+      )}
     </div>
     )
   }

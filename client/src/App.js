@@ -5,7 +5,6 @@ import Home from './components/home.jsx';
 import Tasks from './components/tasks.jsx';
 import Dog from './components/dog.jsx';
 import Owner from './components/owner.jsx';
-import Landing from './components/landing.jsx';
 
 function App() {
 
@@ -13,7 +12,6 @@ function App() {
       <Router>
       <div className="App">
       <Switch>
-        <Route exact path = '/dog/:id/landing' component = { Landing } />
         <Route exact path = '/dog/:id/tasks' component = { Tasks } />
         <Route exact path = '/dog/:id' render = {(props) => (<Dog {...props} />)} />
         <Route exact path = '/dog/:id/owner' component = { Owner } />

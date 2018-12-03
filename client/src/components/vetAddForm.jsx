@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-class VetForm extends Component {
-  state = {
-    vet_name: '',
-    vet_address: '',
-    vet_phone: ''
-  }
+class VetAddForm extends Component{
 
   componentDidMount(){
-    console.log('this is props on edit vet form', this.props)
+    console.log('this is vet add form props', this.props)
   }
 
   handleInputChange(e){
@@ -22,32 +16,31 @@ class VetForm extends Component {
     }))
   }
 
-
-
-handleEdit(e){
+  handleAdd(e){
   e.preventDefault()
-  console.log('this is params:', this.props.match.params.id)
-  axios.put(`/vet/${this.props.match.params.id}`, {
-    vet_name: this.state.vet_name,
-    vet_address: this.state.vet_address,
-    vet_phone: this.state.vet_phone,
+  axios.post(`/vet`, {
+    vet_name: this.props.vet_name,
+    vet_address: this.props.vet_address,
+    vet_phone: this.props.vet_phone,
+    dog_id: this.props.match.params.id,
   }).then(res => {
-    console.log(res)
-  }).catch(err => console.log(err));
-}
+    this.setState({
+      fireRedirect: true,
+    })
+  })
+  }
 
   render(){
-
     return(
-      <div className = "form_container">
-      <form className = "vet_form">
+      <div>
+        <form>
         <label>
         Vet Name
         <input
         type = "text"
         placeholder = "Vet Name"
         name = "vet_name"
-        value = {this.state.vet_name}
+        value = {this.props.vet_name}
         onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
@@ -57,7 +50,7 @@ handleEdit(e){
         type = "text"
         placeholder = "Vet Address"
         name = "vet_address"
-        value = {this.state.vet_address}
+        value = {this.props.vet_address}
         onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
@@ -67,15 +60,15 @@ handleEdit(e){
         type = "text"
         placeholder = "Vet Phone"
         name = "vet_phone"
-        value = {this.state.vet_phone}
+        value = {this.props.vet_phone}
         onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
-        <button onClick = {(e) => this.handleEdit(e)}>Submit</button>
-      </form>
+        <button onClick = {(e) => this.handleAdd(e)}>Add Vet</button>
+        </form>
       </div>
       )
   }
 }
 
-export default VetForm
+export default VetAddForm;
