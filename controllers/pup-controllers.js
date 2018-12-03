@@ -30,6 +30,8 @@ pupController.show = (req, res) => {
     });
 };
 
+
+
 pupController.create = (req, res) => {
   Pup.create({
     dog_name: req.body.dog_name,

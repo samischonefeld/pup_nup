@@ -14,6 +14,7 @@ class Vet extends Component {
     console.log('this is props on vet: ', this.props.match.params.id)
     axios.get(`/vet/${this.props.match.params.id}`)
       .then(async res => {
+        console.log("this is vet on res", res)
         this.setState({
           getData: true,
           vet: res.data.data,
@@ -29,6 +30,7 @@ toggleVetForm(){
 }
 
 render(){
+  console.log(this.state.vet)
   return(
     <div className = "dropdown_content">
       <div>

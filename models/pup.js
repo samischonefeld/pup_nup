@@ -14,6 +14,8 @@ Pup.findById = id => {
   );
 };
 
+
+
 Pup.create = pups => {
   return db.one(
     `INSERT INTO pups (dog_name, dog_age, dog_breed, dog_image)

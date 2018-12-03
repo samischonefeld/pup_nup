@@ -20,8 +20,13 @@ handleInputChange(e){
   }))
 }
 
-handleRegister(e){
+createNewAccount(e){
   e.preventDefault()
+  this.handleRegister();
+  this.createVet();
+}
+
+handleRegister(){
   axios.post('/pup', {
     dog_name: this.state.dog_name,
     password: this.state.password
@@ -32,7 +37,16 @@ handleRegister(e){
       })
       console.log(this.state.id)
     })
-  // })
+  .catch(err => console.log(err))
+}
+
+createVet(){
+  axios.post('/vet', {
+    vet_name: 'Add Vet Name',
+    vet_address: 'Add Vet Address',
+    vet_phone: 'Add Vet phone',
+    dog_id: this.state.id
+  })
   .catch(err => console.log(err))
 }
 
@@ -94,7 +108,7 @@ render(){
           onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
-        <button onClick = {(e) => this.handleRegister(e)}>
+        <button onClick = {(e) => this.createNewAccount(e)} >
         Register
         </button>
       </div>

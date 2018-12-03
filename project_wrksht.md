@@ -55,18 +55,21 @@ Outline the milestones/sprints in GitHub Project.
 
 | MVP | Priority | Est. Hrs | Hrs | Total Hrs |
 | --- | :--------: | :--------:| :--: | ----------: |
-| Complete Baseline CSS & HTML | H | 4hrs | | |
-| Create React App Architecture | H | 3hrs | | |
-| Create CRUD form Functionality | H | 8 hrs | | |
-| Develop Backend | H | 4hrs | | |
-| Make it pretty | H | 8 hrs | | |
-| Implement User Auth | L | 8hrs | | |
-| Build Out in React Native | L | 10hrs | | |
-| Total Hrs | | 45 hrs | | |
+| Complete Baseline CSS & HTML | H | 4hrs | 8hrs | 8hrs |
+| Create React App Architecture | H | 3hrs | 6hrs | 6hrs |
+| Create CRUD form Functionality | H | 8 hrs | 14hrs | 14hrs |
+| Develop Backend | H | 4hrs | 7hrs | 8hrs |
+| Make it pretty | H | 8 hrs | 5hrs | 6hrs |
+| Implement User Auth | L | 8hrs | 4hrs | 4hrs |
+| Build Out in React Native | L | 10hrs | 0hrs | 0hrs |
+| Total Hrs | | 45 hrs | 44hrs | 47hrs |
 
 ## Priority Matrix
 
 Link to priority matrix: https://imgur.com/zFldGyX
 
+## Unsolved Issues
 
+I faced some major challenges with this building this app. 
+Primarily I was having issues with implementing user auth. Because of this I went with an unrpoc
 

@@ -24,9 +24,10 @@ class Login extends Component {
 
   handleLogin(e){
     e.preventDefault()
-    axios.get(`/pup/${this.state.match.params.dog_name}`)
+    console.log('this is params on login', this.state)
+    axios.get(`/pup/${this.state.dog_name}`)
     .then(res => {
-      console.log(res)
+      console.log( 'this is res:', res)
       this.setState({
         id: res.data.data.id,
         fireRedirect: true,
@@ -64,7 +65,7 @@ class Login extends Component {
         Login
         </button>
       </div>
-      {this.state.fireRedirect ? <Redirect push to={`/dog/${this.state.id}/landing/`} id = {this.state.id} /> : ''}
+      {this.state.fireRedirect ? <Redirect push to={`/dog/${this.state.id}`} {...this.props}/> : ''}
       </div>
       )
 

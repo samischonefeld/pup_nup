@@ -18,7 +18,7 @@ class Dog extends Component{
   }
 
 componentDidMount(){
-    console.log('this is the id from dog: ', this.props.match.params.id)
+    console.log('this is the props from dog: ', this.props)
     axios.get(`/pup/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
@@ -26,7 +26,7 @@ componentDidMount(){
           dog: res.data.data,
           DogId: res.data.data.id
         })
-        console.log(this.state.dog)
+        console.log('this is dog', this.state.dog)
       }).catch(err => console.log(err))
   }
 
