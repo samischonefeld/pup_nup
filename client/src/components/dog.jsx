@@ -3,7 +3,9 @@ import axios from 'axios';
 import DogAddForm from './dogAddForm.jsx';
 import Vet from './vet.jsx';
 import Medication from './medication.jsx';
-import Owner from './owner.jsx'
+import Owner from './owner.jsx';
+import Header from './header.jsx';
+import Footer from './footer.jsx';
 
 class Dog extends Component{
   state = {
@@ -55,14 +57,15 @@ this.setState(prevState => ({
     console.log('this is props 2.0', this.props)
     return(
       <div>
+      <Header />
         <div className = "dog_info">
             <div className = "dog_image">
               <img className= "dog_prof" src = {this.state.dog.dog_image} alt ={this.state.dog.dog_name} />
             </div>
           <div className = "dog_list">
-            <h2>{this.state.dog.dog_name}</h2>
-            <h3>{this.state.dog.dog_breed}</h3>
-            <h3>{this.state.dog.dog_age}</h3>
+            <h2 className = "major_info">{this.state.dog.dog_name}</h2>
+            <p className = "minor_info">{this.state.dog.dog_breed}</p>
+            <p className = "minor_info">{this.state.dog.dog_age} years old</p>
             <button onClick={() => this.toggleDogForm()}>Edit Dog</button>
               {this.state.toggleDogForm &&
               <DogAddForm  {...this.props} />
@@ -72,8 +75,8 @@ this.setState(prevState => ({
         <div className = "dropdown_container">
         <div className = "vet_container info_container">
           <section className = "vet_section toggle_div" onClick={() => this.toggleVetInfo()} >
-            <h2>Vet Information</h2>
-            <img className = "plus_icon" src= "https://i.imgur.com/gb02WVI.png" alt = "plus_icon"/>
+            <h2 className ="dropdown_title major_info">Vet Information</h2>
+            <p className = "plus_icon">+</p>
           </section>
           {this.state.toggleVetInfo &&
             <Vet {...this.props} />
@@ -81,8 +84,8 @@ this.setState(prevState => ({
         </div>
         <div className = "medication_container info_container">
           <section className = "medication_section toggle_div" onClick={() => this.toggleMedInfo()}>
-            <h2>Medicinal Information</h2>
-            <img className = "plus_icon" src= "https://i.imgur.com/gb02WVI.png" alt = "plus_icon"/>
+            <h2 className ="dropdown_title major_info">Medical Information</h2>
+            <p className = "plus_icon">+</p>
           </section>
           {this.state.toggleMedInfo &&
             <Medication {...this.props} />
@@ -90,15 +93,15 @@ this.setState(prevState => ({
         </div>
         <div className = "owner_container info_container">
           <section className = "owner_section toggle_div" onClick={() => this.toggleOwnerInfo()}>
-            <h2>Owner Information</h2>
-            <img className = "plus_icon" src= "https://i.imgur.com/gb02WVI.png" alt = "plus_icon"/>
-
+            <h2 className ="dropdown_title major_info">Owner Information</h2>
+            <p className = "plus_icon">+</p>
           </section>
           {this.state.toggleOwnerInfo &&
             <Owner {...this.props} />
           }
         </div>
       </div>
+      <Footer />
       </div>
       )
   }

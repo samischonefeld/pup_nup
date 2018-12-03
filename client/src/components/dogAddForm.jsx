@@ -67,7 +67,7 @@ handleInputChange(e){
             onChange = {(e) => this.handleInputChange(e)}
           />
         </label>
-        <input type = 'submit' value = "Submit" />
+        <input className ="submit" type = 'submit' value = "Submit" />
       </form>
       </div>
     )

@@ -1,77 +1,167 @@
 /*UNIVERSAL CSS*/
-.plus_icon{
-  height: 50px;
-  width: 50px;
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Anton Regular'), local('Anton-Regular'), url(https://fonts.gstatic.com/s/anton/v9/1Ptgg87LROyAm3Kz-C8CSKlv.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+.plus_icon{
+  color: teal;
+  font-size: 60px;
+  text-decoration: bold;
+  padding-left: 100px;
+}
+
 .toggle_div{
   display: flex;
   justify-content: space-between;
   height: 75px;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: gold;
 }
 .dropdown_container{
-border: 2px red solid;
+background-color: gold;
 width: 100%;
 padding: 20px;
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-
+}
+.dropdown_title{
+  color: teal;
+}
+header{
+  display: flex;
+  justify-content: center;
+  background-color: gold;
+  width: 100%;
+}
+.title{
+  color: teal;
+  font-family: "Anton", sans-serif;
+  font-size: 50px;
 }
 
 .info_container{
 padding: 10px;
-width: 50%;
+width: 75%;
+background-color: teal;
 }
-
+.minor_info{
+  padding: 10px;
+  margin: 0px;
+  font-size: 30px;
+  font-family: "Anton", sans-serif;
+  color: gold;
+}
+.major_info{
+  padding: 10px;
+  margin: 0px;
+  font-size: 35px;
+  font-family: "Anton", sans-serif;
+}
+label{
+  padding: 5px;
+  margin: 0px;
+  font-size: 25px;
+}
+.form_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /*DOG INFO SECTION*/
 .dog_info{
   display: flex;
+   justify-content: center;
+   background-color: teal;
+   color: gold;
+   font-family: "Anton", sans-serif;
 }
 .dog_list{
   display: flex;
   flex-direction: column;
   padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 button {
-  width: 100px;
+  width: 150px;
+  background-color: gold;
+  color: teal;
+  height: 50px;
+  font-size: 24px;
+  font-family: "Anton", sans-serif;
+
 }
-.dog_info {
-  display: flex;
-  justify-content: center;
-}
+
 .dog_prof{
   border-radius: 50%;
   height: 300px;
   width: 300px;
+  border: 5px solid gold;
 }
 .dog_image{
-  padding-right: 25px
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .dog_form{
   display: flex;
   flex-direction: column;
 }
+.submit{
+  width: 100px;
+  background-color: gold;
+  color: teal;
+  height: 40px;
+  font-size: 24px;
+  font-family: "Anton", sans-serif;
+}
 /*VET INFO SECTION*/
 .vet_container{
-  border: 2px black solid
+
 }
 .vet_section{
-  border: 2px black solid;
+
+}
+.vet_form{
+  flex-direction: column;
+
 }
 /*MEDICATION INFO SECTION*/
 .medication_container{
-  border: 2px solid black;
+
 }
 .medication_section{
-  border: 2px solid blue;
+
 }
 
 /*OWNER INFO SECTION*/
 .owner_container{
-  border: 2px solid red;
+
 }
 .owner_section{
-  border: 2px solid purple;
+
 }
+/*FOOTER*/
+footer{
+  background-color: teal;
+  color: gold;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
+
+}
+h3{
+  font-family: "Anton", sans-serif;
+  padding: 10px;
+  margin: 0px;
+}
+

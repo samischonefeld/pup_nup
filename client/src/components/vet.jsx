@@ -5,9 +5,7 @@ import VetForm from './vetForm.jsx';
 
 class Vet extends Component {
   state = {
-    vetName: 'Add Vet Name',
-    vetAddress:'Add Vet Address',
-    vetPhone: 'Add Vet Phone',
+    vet: '',
     getData: false,
     toggleVetForm: false
   }
@@ -18,12 +16,9 @@ class Vet extends Component {
       .then(async res => {
         this.setState({
           getData: true,
-          vetName: res.data.data.vet_name,
-          vetAdress: res.data.data.vet_address,
-          vetPhone: res.data.data.vet_phone
+          vet: res.data.data,
         })
-        await console.log('this is vet info', res.data)
-        console.log(this.state.vet.vet_name)
+        console.log('this is vet info', res.data.data)
       }).catch(err => console.log(err))
   }
 
@@ -36,15 +31,10 @@ toggleVetForm(){
 render(){
   return(
     <div>
-      <div className = "vet_title">
-        <h1>Your Dog's Medical Information</h1>
-      </div>
       <div>
-        <ul>
-          <li>{this.state.vetName}</li>
-          <li>{this.state.vetAddress}</li>
-          <li>{this.state.vetPhone}</li>
-        </ul>
+          <p className ="minor_info">{this.state.vet.vet_name}</p>
+          <p className ="minor_info">{this.state.vet.vet_address}</p>
+          <p className ="minor_info">{this.state.vet.vet_phone}</p>
       </div>
       <div className = "toggleVetForm">
         <button onClick ={() => this.toggleVetForm()}>Edit Medical Info</button>

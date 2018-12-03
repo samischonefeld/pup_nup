@@ -29,9 +29,6 @@ toggleMedicationForm(){
 render(){
     return(
       <div>
-        <div className = "medication_title">
-          <h1>Your Dog's Medication</h1>
-        </div>
         <div className = "med_info">
           <h2>{this.state.medication.medication_name}</h2>
           <p>{this.state.medication.medication_dose}</p>

@@ -22,19 +22,19 @@ class VetForm extends Component {
     }))
   }
 
-  handleAdd(e){
-  e.preventDefault()
-  axios.post(`/vet`, {
-    vet_name: this.state.vet_name,
-    vet_address: this.state.vet_address,
-    vet_phone: this.state.vet_phone,
-    dog_id: this.props.match.params.id,
-  }).then(res => {
-    this.setState({
-      fireRedirect: true,
-    })
-  })
-  }
+  // handleAdd(e){
+  // e.preventDefault()
+  // axios.post(`/vet`, {
+  //   vet_name: this.state.vet_name,
+  //   vet_address: this.state.vet_address,
+  //   vet_phone: this.state.vet_phone,
+  //   dog_id: this.props.match.params.id,
+  // }).then(res => {
+  //   this.setState({
+  //     fireRedirect: true,
+  //   })
+  // })
+  // }
 
 handleEdit(e){
   e.preventDefault()
@@ -51,8 +51,8 @@ handleEdit(e){
   render(){
 
     return(
-      <div>
-      <form className = "vet_form" onSubmit = {(e) => this.handleAdd(e)} >
+      <div className = "form_container">
+      <form className = "vet_form">
         <label>
         Vet Name
         <input
@@ -78,12 +78,12 @@ handleEdit(e){
         <input
         type = "text"
         placeholder = "Vet Phone"
+        name = "vet_phone"
         value = {this.state.vet_phone}
         onChange = {(e) => this.handleInputChange(e)}
         />
         </label>
-        <button type ='submit'>Add</button>
-        <button onClick = {(e) => this.handleEdit(e)}>Edit</button>
+        <button onClick = {(e) => this.handleEdit(e)}>Submit</button>
       </form>
       </div>
       )
