@@ -1,32 +1,77 @@
-.App {
-  text-align: center;
+/*UNIVERSAL CSS*/
+.plus_icon{
+  height: 50px;
+  width: 50px;
+}
+.toggle_div{
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+  align-items: center;
+}
+.dropdown_container{
+border: 2px red solid;
+width: 100%;
+padding: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.info_container{
+padding: 10px;
+width: 50%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*DOG INFO SECTION*/
+.dog_info{
+  display: flex;
+}
+.dog_list{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-left: 25px;
+}
+button {
+  width: 100px;
+}
+.dog_info {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.dog_prof{
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+}
+.dog_image{
+  padding-right: 25px
+}
+.dog_form{
+  display: flex;
+  flex-direction: column;
+}
+/*VET INFO SECTION*/
+.vet_container{
+  border: 2px black solid
+}
+.vet_section{
+  border: 2px black solid;
+}
+/*MEDICATION INFO SECTION*/
+.medication_container{
+  border: 2px solid black;
+}
+.medication_section{
+  border: 2px solid blue;
 }
 
-.App-link {
-  color: #61dafb;
+/*OWNER INFO SECTION*/
+.owner_container{
+  border: 2px solid red;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.owner_section{
+  border: 2px solid purple;
 }

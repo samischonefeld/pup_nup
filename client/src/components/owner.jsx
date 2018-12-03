@@ -23,7 +23,7 @@ componentDidMount(){
 
 toggleOwnerForm(){
   this.setState(prevState => ({
-    toggleOwnerForm: !this.prevState.toggleOwnerForm
+    toggleOwnerForm: !prevState.toggleOwnerForm
   }))
 }
   render(){

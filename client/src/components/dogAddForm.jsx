@@ -35,8 +35,8 @@ handleInputChange(e){
 
   render(){
     return(
-      <div className = "dog_form">
-      <form onSubmit = {(e) => this.handleFormSubmit(e)}>
+      <div >
+      <form className = "dog_form" onSubmit = {(e) => this.handleFormSubmit(e)}>
         <label>
           Dog Age
           <input
