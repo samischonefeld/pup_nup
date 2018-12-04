@@ -62,7 +62,6 @@ render(){
       </div>
       <div className = "toggleVetForm">
         <button onClick ={() => this.toggleVetForm()}>Edit Vet</button>
-
         {this.state.toggleVetForm &&
           <VetForm {...this.props} />
         }

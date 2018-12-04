@@ -20,15 +20,15 @@ Vet.findById = id => {
   );
 };
 
-Vet.create = vets => {
+Vet.create = (vets, id) => {
   return db.one(
     `
     INSERT INTO vets
-    (vet_name, vet_address, vet_phone)
-    VALUES ($1, $2, $3)
+    (vet_name, vet_address, vet_phone, dog_id)
+    VALUES ($1, $2, $3, $4)
     RETURNING *
     `,
-    [vets.vet_name, vets.vet_address, vets.vet_phone]
+    [vets.vet_name, vets.vet_address, vets.vet_phone, id]
   );
 };
 
@@ -46,11 +46,11 @@ Vet.update = (vets, id) => {
   );
 };
 
-Vet.destroy = id => {
+Vet.destroy = dog_id => {
   return db.none (
     `
     DELETE FROM vets
-    WHERE id = $1
+    WHERE dog_id = $1
     `,
     [id]
   );
