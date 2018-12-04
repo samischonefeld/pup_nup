@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import MedicationForm from './medicationForm.jsx';
+import MedAddForm from './medicationAddForm.jsx';
 
 class Medication extends Component{
 state = {
     medication: '',
     getData: false,
-    toggleMedicationForm: false
+    toggleMedicationForm: false,
+    medInfo: '',
+    medication_name: 'add',
+    medication_dose: 'add',
 }
 
 componentDidMount(){
@@ -15,10 +19,24 @@ componentDidMount(){
     .then(res => {
       this.setState({
         getData: true,
-        medication: res.data.data
+        medication: res.data.data,
+        medication_name: res.data.data.medication_name,
+        medication_dose: res.data.data.medication_dose,
       })
-      console.log('this is medication state', this.state.medication)
+      this.medInfoStatus();
     }).catch(err => console.log(err))
+}
+
+medInfoStatus(){
+  if(this.state.medication_name === 'add'){
+    this.setState(prevState => ({
+      medInfo: false,
+    }))
+  } else {
+    this.setState(prevState => ({
+      medInfo: true,
+    }))
+  }
 }
 
 toggleMedicationForm(){
@@ -26,24 +44,32 @@ toggleMedicationForm(){
     toggleMedicationForm: !prevState.toggleMedicationForm
   }))
 }
+
 render(){
     return(
       <div>
+      { this.state.medInfo ? (
+        <div>
         <div className = "med_info">
-          <p className ="minor_info">{this.state.medication.medication_name}</p>
-          <p className ="minor_info">{this.state.medication.medication_dose}</p>
+          <p className ="minor_info">Medication Name: {this.state.medication_name}</p>
+          <p className ="minor_info"> Medication Dose: {this.state.medication_dose}</p>
         </div>
         <div className = "medication_form">
           <button onClick = {() => this.toggleMedicationForm()}>Edit Meds</button>
+
           {this.state.toggleMedicationForm &&
             <MedicationForm {...this.props}/>
           }
         </div>
+        </div>
+        ) : (
+        <div>
+        <MedAddForm {...this.props} />
+        </div>
+        ) }
       </div>
       )
   }
 }
-
-// Will need to map over medication...
 
 export default Medication;

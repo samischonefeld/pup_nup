@@ -9,7 +9,7 @@ class Vet extends Component {
     vet: '',
     getData: false,
     toggleVetForm: false,
-    vetInfo: true,
+    vetInfo: '',
     vet_name: 'add',
     vet_address: 'add',
     vet_phone: 'add'
@@ -18,7 +18,7 @@ class Vet extends Component {
 
   componentDidMount(){
     axios.get(`/vet/${this.props.match.params.id}`)
-      .then(async res => {
+      .then(res => {
         this.setState({
           getData: true,
           vet: res.data.data,
@@ -32,7 +32,7 @@ class Vet extends Component {
   }
 
 vetInfoStatus(){
-  if(this.state.vet === 'add'){
+  if(this.state.vet_name === 'add'){
     this.setState(prevState => ({
       vetInfo: false,
     }))
@@ -62,10 +62,12 @@ render(){
       </div>
       <div className = "toggleVetForm">
         <button onClick ={() => this.toggleVetForm()}>Edit Vet</button>
+
         {this.state.toggleVetForm &&
           <VetForm {...this.props} />
         }
       </div>
+
       </div>
       ) : (
       <div>

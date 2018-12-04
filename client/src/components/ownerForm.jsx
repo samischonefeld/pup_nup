@@ -1,46 +1,50 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class OwnerAddForm extends Component{
+class OwnerForm extends Component {
+state = {
+  owner_name: '',
+}
 
-    handleInputChange(e){
+handleInputChange(e){
     console.log(e.target.value)
     const name = e.target.name
     const value = e.target.value
     this.setState(prevState => ({
       [name]:value
     }))
-  }
+}
 
-  handleAdd(e){
+handleSubmit(e){
   e.preventDefault()
-  axios.post(`/owner`, {
-    owner_name: this.props.vet_name,
-    dog_id: this.props.match.params.id,
+  console.log(this.props.match.params.id)
+  axios.put(`/owner/${this.props.match.params.id}`, {
+    owner_name: this.state.owner_name,
   }).then(res => {
-    this.setState({
-      fireRedirect: true,
-    })
-  })
-  }
+    console.log(res)
+  }).catch(err => console.log(err));
+}
+
 
   render(){
     return(
-    <form onSubmit = {(e) => this.handleAdd(e)}>
+    <div>
+    <form onSubmit = {(e) => this.handleSubmit(e)}>
     <label>
     Owner Name
     <input
     type = "text"
     placeholder = "Owner Name"
     name = "owner_name"
-    value = {this.props.owner_name}
+    value = {this.state.owner_name}
     onChange = {(e) => this.handleInputChange(e)}
     />
     </label>
     <input className = "button" type = 'submit' value = "Submit" />
     </form>
-      )
+    </div>
+    )
   }
 }
 
-export default OwnerAddForm;
+export default OwnerForm;

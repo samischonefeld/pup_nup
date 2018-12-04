@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import OwnerAddForm from './ownerAddForm.jsx';
 import axios from 'axios';
+import OwnerAddForm from './ownerAddForm.jsx';
+import OwnerForm from './ownerForm.jsx'
 
 class Owner extends Component{
   state = {
     owner: '',
+    owner_name: 'add',
+    ownerInfo: '',
     getData: false,
     toggleOwnerForm: false
   }
@@ -15,10 +18,22 @@ componentDidMount(){
       .then(async res => {
         this.setState({
           getData: true,
-          owner: res.data.data
+          owner_name: res.data.data.owner_name,
         })
-        await console.log('this is owner info', res.data)
+        this.ownerInfoStatus()
       }).catch(err => console.log(err))
+}
+
+ownerInfoStatus(){
+  if(this.state.owner_name === 'add'){
+    this.setState(prevState => ({
+      ownerInfo: false,
+    }))
+  } else {
+    this.setState(prevState => ({
+      ownerInfo: true,
+    }))
+  }
 }
 
 toggleOwnerForm(){
@@ -26,21 +41,30 @@ toggleOwnerForm(){
     toggleOwnerForm: !prevState.toggleOwnerForm
   }))
 }
+
   render(){
     return(
       <div>
+        { this.state.ownerInfo ? (
+        <div>
         <div className = "owner_info">
-          <p className ="minor_info">{this.state.owner.owner_name}</p>
+          <p className ="minor_info"> Owner Name: {this.state.owner_name} </p>
         </div>
         <div className = "owner_form">
           <button onClick = {() => this.toggleOwnerForm()}>Edit Owner</button>
           {this.state.toggleOwnerForm &&
-            <OwnerAddForm {...this.props} />
+            <OwnerForm {...this.props} />
           }
         </div>
       </div>
-      )
-  }
+      ) : (
+      <div>
+      <OwnerAddForm {...this.props} />
+      </div>
+      )}
+    </div>
+  )
+}
 }
 
 export default Owner;

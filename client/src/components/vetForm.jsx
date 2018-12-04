@@ -22,8 +22,6 @@ class VetForm extends Component {
     }))
   }
 
-
-
 handleEdit(e){
   e.preventDefault()
   console.log('this is params:', this.props.match.params.id)
