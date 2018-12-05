@@ -1,5 +1,8 @@
 ## Project Worksheet
 
+Still working on getting this live: https://pup-nup.herokuapp.com/
+
+
 ## Scope: 
 
 What are you planning to build? What is the name of your application. What technologies do you plan to use? What do you reasonably think you can implement in the allotted time period? What are your reach goals?
