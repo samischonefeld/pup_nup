@@ -6,6 +6,9 @@ class Register extends Component{
 
   state = {
       dog_name: '',
+      dog_age: '',
+      dog_breed: '',
+      dog_image:'',
       password: '',
       id: '',
       fireRedirect: false,
@@ -29,6 +32,9 @@ createNewAccount(e){
 handleRegister(){
   axios.post('/pup', {
     dog_name: this.state.dog_name,
+    dog_age: this.state.dog_age,
+    dog_breed: this.state.dog_breed,
+    dog_image: this.state.dog_image,
     password: this.state.password
   }).then((res) => {
       this.setState({
